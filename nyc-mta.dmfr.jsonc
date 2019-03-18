@@ -1,4 +1,5 @@
-// NOTE: this is still work-in-progress
+// NOTE: while this is work-in-progress, we're using "JSON with Comments" format
+// from Microsoft: https://code.visualstudio.com/docs/languages/json#_json-with-comments
 {
   "$schema": "./dmfr.schema.json",
   "feeds": [
