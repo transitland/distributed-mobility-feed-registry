@@ -3,6 +3,7 @@
 {
   "$schema": "./dmfr.schema.json",
   "feeds": [
+    // static GTFS
     {"type": "gtfs","id": "subway", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-nyctsubway", "openmobilitydata": "mta/79" }, "url": "http://web.mta.info/developers/data/nyct/subway/google_transit.zip" },
     {"type": "gtfs","id": "bus-brooklyn", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusbrooklyn", "openmobilitydata": "mta/80" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_brooklyn.zip" },
     {"type": "gtfs","id": "bus-manhattan", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusmanhattan", "openmobilitydata": "mta/82" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_manhattan.zip" },
@@ -18,17 +19,16 @@
       "type": "gtfs-rt",
       "id": "rt-bus",
       "feed_namespace_id": "o-dr5r-nyct",
-      "other_ids": { "openmobilitydata": "" },
       "urls": {
-        "realtime_alerts": "http://gtfsrt.prod.obanyc.com/alerts?key={MTA_API_KEY}",
-        "realtime_trip_updates": "http://gtfsrt.prod.obanyc.com/tripUpdates?key={MTA_API_KEY}",
-        "realtime_vehicle_positions": "http://gtfsrt.prod.obanyc.com/vehiclePositions?key={MTA_API_KEY}"
+        "realtime_alerts": "http://gtfsrt.prod.obanyc.com/alerts",
+        "realtime_trip_updates": "http://gtfsrt.prod.obanyc.com/tripUpdates",
+        "realtime_vehicle_positions": "http://gtfsrt.prod.obanyc.com/vehiclePositions"
       },
       "authorization": {
         "info_url": "http://datamine.mta.info/feed-documentation",
         "type": "query_param",
         "param_name": "key",
-        "input_env_var": "MTA_KEY"
+        "input_env_var": "MTA_API_KEY"
       }
     }
     // TODO: include more GTFS-RT feeds
