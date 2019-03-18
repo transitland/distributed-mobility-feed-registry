@@ -1,0 +1,36 @@
+// NOTE: this is still work-in-progress
+{
+  "$schema": "./dmfr.schema.json",
+  "feeds": [
+    {"type": "gtfs","id": "subway", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-nyctsubway" }, "url": "http://web.mta.info/developers/data/nyct/subway/google_transit.zip" },
+    {"type": "gtfs","id": "bus-brooklyn", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusbrooklyn" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_brooklyn.zip" },
+    {"type": "gtfs","id": "bus-manhattan", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusmanhattan" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_manhattan.zip" },
+    {"type": "gtfs","id": "bus-staten-island", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusstatenisland" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_staten_island.zip" },
+    {"type": "gtfs","id": "bus-queens", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5x-mtanyctbusqueens" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_queens.zip" },
+    {"type": "gtfs","id": "bus-bronx", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr72-mtanyctbusbronx" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_bronx.zip" },
+    {"type": "gtfs","id": "busco", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtabc" }, "url": "http://web.mta.info/developers/data/busco/google_transit.zip" },
+    {"type": "gtfs","id": "subway-supplemented", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanewyorkcitytransit" }, "url": "http://web.mta.info/developers/files/google_transit_supplemented.zip" },
+    {"type": "gtfs","id": "mnr", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr7-mtanyc~metro~north" }, "url": "http://web.mta.info/developers/data/mnr/google_transit.zip" },
+    {"type": "gtfs","id": "lirr", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5-mtanyclirr" }, "url": "http://web.mta.info/developers/data/lirr/google_transit.zip" },
+    // GTFS-RT for buses
+    {
+      "type": "gtfs-rt",
+      "id": "rt-bus",
+      "feed_namespace_id": "o-dr5r-nyct",
+      "other_ids": { "openmobilitydata": "" },
+      "urls": {
+        "realtime_alerts": "http://gtfsrt.prod.obanyc.com/alerts?key={MTA_API_KEY}",
+        "realtime_trip_updates": "http://gtfsrt.prod.obanyc.com/tripUpdates?key={MTA_API_KEY}",
+        "realtime_vehicle_positions": "http://gtfsrt.prod.obanyc.com/vehiclePositions?key={MTA_API_KEY}"
+      },
+      "authorization": {
+        "info_url": "http://datamine.mta.info/feed-documentation",
+        "type": "query_param",
+        "param_name": "key",
+        "input_env_var": "MTA_KEY"
+      }
+    }
+    // TODO: include more GTFS-RT feeds
+  ],
+  "license_spdx_identifier": "CC0-1.0"
+}

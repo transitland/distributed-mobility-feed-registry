@@ -1,0 +1,169 @@
+{
+  "$id": "https://github.com/transitland/distributed-mobility-feed-registry/TODO",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Distributed Mobility Feed Registry",
+  "type": "object",
+  "properties": {
+    "feeds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/feed"
+      }
+    },
+    "license_spdx_identifier": {
+      "const": "CC0-1.0"
+    }
+  },
+  "definitions": {
+    "feed": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier for this feed, internal to this DMFR instance."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["gtfs", "gtfs-rt", "gbfs", "mds"],
+          "description": "Type of data contained in this feed: GTFS, GTFS-RT, GBFS, or MDS."
+        },
+        "url": {
+          "type": "string",
+          "description": "Primary URL for accessing this feed. Uses Transitland extened URL format."
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "static_current": { "type": "string" },
+            "static_historic": { "type": "string" },
+            "static_planned": { "type": "string" },
+            "static_hypothetical": { "type": "string" },
+            "realtime_vehicle_positions": { "type": "string" },
+            "realtime_trip_updates": { "type": "string" },
+            "realtime_alerts": { "type": "string" }
+          }
+        },
+        "associated_feeds": {
+          "type": "array",
+          "description": "List of associated feeds, using IDs internal to this DMFR instance. For example to one or more GTFS feeds associated with an GTFS-RT feed.",
+          "items": {
+            "type": "string",
+            "description": "Identifier for an associated feed, using ID internal to this DMFR."
+          }
+        },
+        "feed_namespace_id": {
+          "type": "string",
+          "description": "Feeds that share the same feed_namespace_id value can be combined without needing to rewrite entity IDs."
+        },
+        "other_ids": {
+          "type": "object",
+          "description": "Identifiers for this feed used by other DMFR instances.",
+        },
+        "languages": {
+          "type": "array",
+          "description": "Language(s) included in this feed.",
+          "items": {
+            "$ref": "#/definitions/language"
+          }
+        },
+        "license": {
+          "$ref": "#/defintions/license_description"
+        },
+        "authorization":  {
+          "$ref": "#/definitions/authorization"
+        }
+      },
+      "anyOf": [{
+        "properties": {
+          "type": {
+            "enum": ["gtfs"]
+          }
+        },
+        "required": ["url"],
+        "not": {
+          "required": ["urls"]
+        }
+      }, {
+        "properties": {
+          "type": {
+            "enum": ["gtfs"]
+          }
+        },
+        "required": ["urls"],
+        "not": {
+          "required": ["url"]
+        }
+      }, {
+        "properties": {
+          "type": {
+            "enum": ["gtfs-rt"]
+          }
+        },
+        "required": ["urls"],
+        "not": {
+          "required": ["url"]
+        }
+      }]
+    },
+    "language": {
+      "type": "string",
+      "description": "A language specified using an IETF language tag."
+    },
+    "license_description": {
+      "type": "object",
+      "properties": {
+        "spdx_identifier": {
+          "type": "string",
+          "description": "SPDX identifier for a common license. See https://spdx.org/licenses/"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL for a custom license."
+        },
+        "use_without_attribution": {
+          "type": "string",
+          "enum": ["yes", "no", "unknown"],
+          "description": "Are feed consumers alloed to use the feed contents without including attribution text in their app or map?"
+        },
+        "create_derived_product": {
+          "type": "string",
+          "enum": ["yes", "no", "unknown"],
+          "description": "Are feed consumers allowed to create and share derived products from the feed?"
+        },
+        "redistribution_allowed": {
+          "type": "string",
+          "enum": ["yes", "no", "unknown"],
+          "description": "Are feed consumers allowed to redistribute the feed in its entirety?"
+        },
+        "attribution_text": {
+          "type": "string",
+          "description": "Feed users must include this particular text as attribution."
+        }
+      }
+    },
+    "authorization": {
+      "type":"object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type":"string",
+          "enum": ["header", "basic_auth", "query_param", "path_segment"],
+          "description": "Authorization approach: HTTP header, basic authentication, query parameter, or URL path segment."
+        },
+        "param_name": {
+          "type": "string",
+          "description": "When type=query_param, this specificies the name of the query parameter."
+        },
+        "info_url": {
+          "type": "string",
+          "description": "Website to visit to sign up for an account."
+        },
+        "input_env_var": {
+          "type": "string",
+          "description": "DMFR tools may accept authorization value(s) using environment variables. For basic auth, x_USER and x_PASSWD will be accepted (where x is the contents of input_env_variable)."
+        }
+      }
+    }
+  }
+}
