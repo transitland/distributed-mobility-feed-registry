@@ -1,7 +1,7 @@
 // NOTE: while this is work-in-progress, we're using "JSON with Comments" format
 // from Microsoft: https://code.visualstudio.com/docs/languages/json#_json-with-comments
 {
-  "$schema": "./dmfr.schema.json",
+  "$schema": "../json-schema/dmfr.schema.json",
   "feeds": [
     // static GTFS
     {"type": "gtfs","id": "subway", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-nyctsubway", "openmobilitydata": "mta/79" }, "url": "http://web.mta.info/developers/data/nyct/subway/google_transit.zip" },
