@@ -1,0 +1,23 @@
+{
+  "name": "dmfr-ui",
+  "version": "1.0.0",
+  "description": "Distributed Mobility Feed Registry user interface",
+  "author": "Drew Dara-Abrams",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/bulma": "^1.2.1",
+    "cross-env": "^5.2.0",
+    "jsonc-parser": "^2.0.3",
+    "nuxt": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
