@@ -28,8 +28,8 @@ Single static GTFS feed:
 {
   "feeds": [
     {
-      "type": "gtfs", // enum: ["gtfs", "gtfs_realtime", "gbfs", "mds"]
-      "internal_id": "XXXX", // IDs are only internal
+      "spec": "gtfs", // enum: ["gtfs", "gtfs_realtime", "gbfs", "mds"]
+      "id": "XXXX", // IDs are internally unique, but not necessarily globally unique
       "url": "", // "Transitland style URL" to support nested zip archives
       "urls": [ // alternatively if you want to list multiple feed URLs
         {
@@ -100,7 +100,6 @@ Transitland Feed Registry supports an extended URL format that can reference fil
 ```
 https://github.com/septadev/GTFS/releases/download/v201810010/gtfs_public.zip#google_bus.zip
 ```
-
 
 ## Optional Stanzas
 

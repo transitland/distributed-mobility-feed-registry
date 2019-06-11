@@ -1,0 +1,31 @@
+{
+  "$schema": "https://transitland.github.io/distributed-mobility-feed-registry/json-schema/dmfr.schema.json",
+  "feeds": [
+    {"spec": "gtfs","id": "subway", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-nyctsubway", "openmobilitydata": "mta/79" }, "url": "http://web.mta.info/developers/data/nyct/subway/google_transit.zip" },
+    {"spec": "gtfs","id": "bus-brooklyn", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusbrooklyn", "openmobilitydata": "mta/80" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_brooklyn.zip" },
+    {"spec": "gtfs","id": "bus-manhattan", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusmanhattan", "openmobilitydata": "mta/82" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_manhattan.zip" },
+    {"spec": "gtfs","id": "bus-staten-island", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusstatenisland", "openmobilitydata": "mta/84" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_staten_island.zip" },
+    {"spec": "gtfs","id": "bus-queens", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5x-mtanyctbusqueens", "openmobilitydata": "mta/83" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_queens.zip" },
+    {"spec": "gtfs","id": "bus-bronx", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr72-mtanyctbusbronx", "openmobilitydata": "mta/81" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_bronx.zip" },
+    {"spec": "gtfs","id": "busco", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtabc", "openmobilitydata": "mta/85" }, "url": "http://web.mta.info/developers/data/busco/google_transit.zip" },
+    {"spec": "gtfs","id": "subway-supplemented", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanewyorkcitytransit", "openmobilitydata": "mta/886" }, "url": "http://web.mta.info/developers/files/google_transit_supplemented.zip" },
+    {"spec": "gtfs","id": "mnr", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr7-mtanyc~metro~north", "openmobilitydata": "mta/87" }, "url": "http://web.mta.info/developers/data/mnr/google_transit.zip" },
+    {"spec": "gtfs","id": "lirr", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5-mtanyclirr", "openmobilitydata": "mta/86" }, "url": "http://web.mta.info/developers/data/lirr/google_transit.zip" },
+    {
+      "type": "gtfs-rt",
+      "id": "rt-bus",
+      "feed_namespace_id": "o-dr5r-nyct",
+      "urls": {
+        "realtime_alerts": "http://gtfsrt.prod.obanyc.com/alerts",
+        "realtime_trip_updates": "http://gtfsrt.prod.obanyc.com/tripUpdates",
+        "realtime_vehicle_positions": "http://gtfsrt.prod.obanyc.com/vehiclePositions"
+      },
+      "authorization": {
+        "info_url": "http://datamine.mta.info/feed-documentation",
+        "type": "query_param",
+        "param_name": "key"
+      }
+    }
+  ],
+  "license_spdx_identifier": "CC0-1.0"
+}

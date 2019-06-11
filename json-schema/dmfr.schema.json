@@ -158,10 +158,6 @@
         "info_url": {
           "type": "string",
           "description": "Website to visit to sign up for an account."
-        },
-        "input_env_var": {
-          "type": "string",
-          "description": "DMFR tools may accept authorization value(s) using environment variables. For basic auth, x_USER and x_PASSWD will be accepted (where x is the contents of input_env_variable)."
         }
       }
     }
