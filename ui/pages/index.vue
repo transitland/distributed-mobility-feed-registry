@@ -1,19 +1,27 @@
 <template>
   <div class="container">
-    <dmfr-renderer/>
+    <div class="content">
+      <div v-html="readme"></div>
+    </div>
+    <!-- <dmfr-renderer/> -->
   </div>
 </template>
 
 <script>
-import DmfrRenderer from '~/components/DmfrRenderer.vue'
+// import DmfrRenderer from '~/components/DmfrRenderer.vue'
+import Readme from "~/../README.md";
 
 export default {
-  components: {
-    DmfrRenderer
+  computed: {
+    readme() {
+      return Readme;
+    }
   }
-}
+  // components: {
+  //   DmfrRenderer
+  // }
+};
 </script>
 
 <style>
-
 </style>

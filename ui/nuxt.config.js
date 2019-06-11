@@ -7,7 +7,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Distributed Mobility Feed Registry (DMFR) user interface',
+    title: 'Transitland Distributed Mobility Feed Registry (DMFR)',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -39,10 +39,9 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
+    '@nuxtjs/markdownit'
   ],
   /*
   ** Axios module configuration
