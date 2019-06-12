@@ -76,7 +76,7 @@
       },
       "anyOf": [{
         "properties": {
-          "type": {
+          "spec": {
             "enum": ["gtfs"]
           }
         },
@@ -86,7 +86,7 @@
         }
       }, {
         "properties": {
-          "type": {
+          "spec": {
             "enum": ["gtfs"]
           }
         },
@@ -96,7 +96,7 @@
         }
       }, {
         "properties": {
-          "type": {
+          "spec": {
             "enum": ["gtfs-rt"]
           }
         },
