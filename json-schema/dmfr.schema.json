@@ -68,7 +68,7 @@
           }
         },
         "license": {
-          "$ref": "#/defintions/license_description"
+          "$ref": "#/definitions/license_description"
         },
         "authorization":  {
           "$ref": "#/definitions/authorization"
