@@ -1,5 +1,5 @@
 {
-  "$schema": "https://transitland.github.io/distributed-mobility-feed-registry/json-schema/dmfr.schema.json",
+  "$schema": "https://dmfr.transit.land/json-schema/dmfr.schema.json",
   "feeds": [
     {"spec": "gtfs","id": "subway", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-nyctsubway", "openmobilitydata": "mta/79" }, "url": "http://web.mta.info/developers/data/nyct/subway/google_transit.zip" },
     {"spec": "gtfs","id": "bus-brooklyn", "feed_namespace_id": "o-dr5r-nyct", "other_ids": { "transitland": "f-dr5r-mtanyctbusbrooklyn", "openmobilitydata": "mta/80" }, "associated_feeds": ["rt-bus"], "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_brooklyn.zip" },
