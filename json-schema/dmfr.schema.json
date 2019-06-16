@@ -17,7 +17,7 @@
   "definitions": {
     "feed": {
       "type": "object",
-      "required": ["id", "type"],
+      "required": ["id", "spec"],
       "properties": {
         "id": {
           "type": "string",
