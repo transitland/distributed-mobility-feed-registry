@@ -28,16 +28,15 @@ Single static GTFS feed:
 {
   "feeds": [
     {
-      "spec": "gtfs", // enum: ["gtfs", "gtfs_realtime", "gbfs", "mds"]
+      "spec": "gtfs", // enum: ["gtfs", "gtfs-rt", "gbfs", "mds"]
       "id": "XXXX", // IDs are internally unique, but not necessarily globally unique
       "url": "", // "Transitland style URL" to support nested zip archives
-      "urls": [ // alternatively if you want to list multiple feed URLs
-        {
-          "status": "current", // enum: ["current", "draft", "archived"]
-          "url": ""
-        }
-      ],
-      "languages": [], // IETF language tags, see https://tools.ietf.org/html/bcp47
+      "urls": { // alternatively if you want to list multiple feed URLs
+        "static_current": "",
+        "static_historic": "",
+        "static_planned": ""
+      },
+      "languages": ["en-US"], // IETF language tags, see https://tools.ietf.org/html/bcp47
       "license": {
         "spdx_identifier": "", // see https://spdx.org/licenses/
         "url": "",
@@ -58,18 +57,17 @@ Single GTFS-realtime feed:
 {
   "feeds": [
     {
-      "type": "gtfs-reatime", // enum: ["gtfs", "gtfs_realtime", "gbfs", "mds"]
+      "type": "gtfs-rt", // enum: ["gtfs", "gtfs-rt", "gbfs", "mds"]
       "internal_id": "XXXX", // IDs are only internal
       "associated_feeds": [
         // list of associated static GTFS feeds ids
       ], 
-      "urls": [ // alternatively if you want to list multiple feed URLs
-        {
-          "contents": "", // enum: ["trip_update", "vehicle_positions", "service_alerts"]
-          "url": ""
-        }
-      ],
-      "languages": [], // IETF language tags, see https://tools.ietf.org/html/bcp47
+      "urls": {
+        "realtime_vehicle_positions": "",
+        "realtime_trip_updates": "",
+        "realtime_alerts": ""
+      },
+      "languages": ["en-US"], // IETF language tags, see https://tools.ietf.org/html/bcp47
       "license": {
         "spdx_identifier": "", // see https://spdx.org/licenses/
         "url": "",
@@ -80,7 +78,7 @@ Single GTFS-realtime feed:
       }
     },
     {
-      "type": "gtfs", // enum: ["gtfs", "gtfs_realtime", "gbfs", "mds"],
+      "type": "gtfs", // enum: ["gtfs", "gtfs-rt", "gbfs", "mds"],
       "internal_id": "XXXX", // IDs are only internal
       // ...
     }
