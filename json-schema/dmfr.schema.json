@@ -21,7 +21,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Identifier for this feed, internal to this DMFR instance."
+          "description": "Identifier for this feed, internal to this DMFR instance. (Optionally can be a Onestop ID.)"
         },
         "spec": {
           "type": "string",
@@ -30,18 +30,56 @@
         },
         "url": {
           "type": "string",
-          "description": "Primary URL for accessing this feed. Uses Transitland extened URL format."
+          "description": "Primary URL for accessing this feed. Uses Transitland Extended URL format. (Has the same meaning as urls.static_current.)",
+          "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
         },
         "urls": {
           "type": "object",
           "properties": {
-            "static_current": { "type": "string" },
-            "static_historic": { "type": "string" },
-            "static_planned": { "type": "string" },
-            "static_hypothetical": { "type": "string" },
-            "realtime_vehicle_positions": { "type": "string" },
-            "realtime_trip_updates": { "type": "string" },
-            "realtime_alerts": { "type": "string" }
+            "static_current": {
+              "type": "string",
+              "description": "URL (in Transitland Extended URL format) for the static feed that represents today's service. (Has the same meaning as url.)",
+              "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "static_historic": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "URLs (in Transitland Extended URL format) for static feeds that represent past service that is no longer in effect.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+              }
+            },
+            "static_planned": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "URLs (in Transitland Extended URL format) for static feeds that represent service planned for upcoming dates. Typically used to represent calendar/service changes that will take effect few weeks or months in the future.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+              }
+            },
+            "static_hypothetical": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "URLs (in Transitland Extended URL format) for static feeds that represent potential service or network changes. Typically used to represent scenarios that may (or may not) take effect months or years in the future.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+              }
+            },
+            "realtime_vehicle_positions": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "realtime_trip_updates": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "realtime_alerts": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            }
           }
         },
         "associated_feeds": {
@@ -54,11 +92,11 @@
         },
         "feed_namespace_id": {
           "type": "string",
-          "description": "Feeds that share the same feed_namespace_id value can be combined without needing to rewrite entity IDs."
+          "description": "Feeds that share the same feed_namespace_id value can be combined without needing to rewrite entity IDs. (Optionally can be an operator Onestop ID.)"
         },
         "other_ids": {
           "type": "object",
-          "description": "Identifiers for this feed used by other DMFR instances."
+          "description": "Identifiers for this feed used by other DMFR instances. Key is the DMFR instance or feed registry platform; value is the feed ID."
         },
         "languages": {
           "type": "array",
@@ -112,6 +150,11 @@
     },
     "license_description": {
       "type": "object",
+      "oneOf": [{
+        "required": ["spdx_identifier"]
+      }, {
+        "required": ["url"]
+      }],
       "properties": {
         "spdx_identifier": {
           "type": "string",
@@ -124,7 +167,7 @@
         "use_without_attribution": {
           "type": "string",
           "enum": ["yes", "no", "unknown"],
-          "description": "Are feed consumers alloed to use the feed contents without including attribution text in their app or map?"
+          "description": "Are feed consumers allowed to use the feed contents without including attribution text in their app or map?"
         },
         "create_derived_product": {
           "type": "string",
@@ -136,9 +179,23 @@
           "enum": ["yes", "no", "unknown"],
           "description": "Are feed consumers allowed to redistribute the feed in its entirety?"
         },
+        "commercial_use_allowed": {
+          "type": "string",
+          "enum": ["yes", "no", "unknown"],
+          "description": "Are feed consumers allowed to use the feed for commercial purposes?"
+        },
+        "share_alike_optional": {
+          "type": "string",
+          "enum": ["yes", "no", "unknown"],
+          "description": "Are feed consumers allowed to keep their modifications of this feed private?"
+        },
         "attribution_text": {
           "type": "string",
-          "description": "Feed users must include this particular text as attribution."
+          "description": "Feed consumers must include this particular text when using this feed."
+        },
+        "attribution_instructions": {
+          "type": "string",
+          "description": "Feed consumers must follow these instructions for how to provide attribution."
         }
       }
     },
@@ -149,11 +206,11 @@
         "type": {
           "type":"string",
           "enum": ["header", "basic_auth", "query_param", "path_segment"],
-          "description": "Authorization approach: HTTP header, basic authentication, query parameter, or URL path segment."
+          "description": "Authorization approach: HTTP header, basic authentication, query parameter, or path segment in a Transitland Extended URL."
         },
         "param_name": {
           "type": "string",
-          "description": "When type=query_param, this specificies the name of the query parameter."
+          "description": "When type=query_param, this specifies the name of the query parameter."
         },
         "info_url": {
           "type": "string",
