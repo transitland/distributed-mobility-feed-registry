@@ -30,7 +30,7 @@
         },
         "url": {
           "type": "string",
-          "description": "Primary URL for accessing this feed. Uses Transitland Extended URL format. (Has the same meaning as urls.static_current.)",
+          "description": "URL for accessing this feed. Uses Transitland Extended URL format. (For GTFS, can reference the current static feed. For GBFS, this can reference the auto-discovery JSON file.)",
           "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
         },
         "urls": {
@@ -79,6 +79,56 @@
               "type": "string",
               "description": "TODO",
               "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_system_information": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_station_information": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_station_status": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_free_bike_status": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_system_hours": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_system_calendar": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_system_regions": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_system_pricing_plans": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "gbfs_system_alerts": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
+            },
+            "mds_provider": {
+              "type": "string",
+              "description": "TODO",
+              "pattern": "^(http|https):\/\/[a-zA-Z0-9.-~#{}/]+$"
             }
           }
         },
@@ -108,41 +158,74 @@
         "license": {
           "$ref": "#/definitions/license_description"
         },
-        "authorization":  {
+        "authorization": {
           "$ref": "#/definitions/authorization"
         }
       },
       "anyOf": [{
-        "properties": {
-          "spec": {
-            "enum": ["gtfs"]
+          "properties": {
+            "spec": {
+              "enum": ["gtfs"]
+            }
+          },
+          "required": ["url"],
+          "not": {
+            "required": ["urls"]
+          }
+        }, {
+          "properties": {
+            "spec": {
+              "enum": ["gtfs"]
+            }
+          },
+          "required": ["urls"],
+          "not": {
+            "required": ["url"]
+          }
+        }, {
+          "properties": {
+            "spec": {
+              "enum": ["gtfs-rt"]
+            }
+          },
+          "required": ["urls"],
+          "not": {
+            "required": ["url"]
+          }
+        }, {
+          "properties": {
+            "spec": {
+              "enum": ["gbfs"]
+            }
+          },
+          "required": ["url"],
+          "not": {
+            "required": ["urls"]
           }
         },
-        "required": ["url"],
-        "not": {
-          "required": ["urls"]
-        }
-      }, {
-        "properties": {
-          "spec": {
-            "enum": ["gtfs"]
+        {
+          "properties": {
+            "spec": {
+              "enum": ["gbfs"]
+            }
+          },
+          "required": ["urls"],
+          "not": {
+            "required": ["url"]
           }
         },
-        "required": ["urls"],
-        "not": {
-          "required": ["url"]
-        }
-      }, {
-        "properties": {
-          "spec": {
-            "enum": ["gtfs-rt"]
+        {
+          "properties": {
+            "spec": {
+              "enum": ["mds"]
+            }
+          },
+          "required": ["urls"],
+          "not": {
+            "required": ["url"]
           }
-        },
-        "required": ["urls"],
-        "not": {
-          "required": ["url"]
         }
-      }]
+      ]
     },
     "language": {
       "type": "string",
@@ -200,11 +283,11 @@
       }
     },
     "authorization": {
-      "type":"object",
+      "type": "object",
       "required": ["type"],
       "properties": {
         "type": {
-          "type":"string",
+          "type": "string",
           "enum": ["header", "basic_auth", "query_param", "path_segment"],
           "description": "Authorization approach: HTTP header, basic authentication, query parameter, or path segment in a Transitland Extended URL."
         },
