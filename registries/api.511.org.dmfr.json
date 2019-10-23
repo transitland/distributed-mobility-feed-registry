@@ -1,0 +1,234 @@
+{
+  "$schema": "https://dmfr.transit.land/json-schema/dmfr.schema-v0.1.0.json",
+  "feeds": [
+    {
+      "spec": "gtfs",
+      "id": "f-9q8zm-blue~goldfleet",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=BG"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q8zm-blue~goldfleet"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9q8zmw-angelislandtiburonferry",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=AT"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q8zmw-angelislandtiburonferry"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9qc14-americancanyontransit",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=AY"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9qc14-americancanyontransit"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9q9-acealtamontcorridorexpress",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=CE"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q9-acealtamontcorridorexpress"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9q9j-dumbartonexpress",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=DE"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q9j-dumbartonexpress"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9q8z-goldengateferry",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=GF"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q8z-goldengateferry"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9q8zn-alcatrazhornblowerferry",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=HF"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q8zn-alcatrazhornblowerferry"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9qb-smart",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=SA"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9qb-smart"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9q9jy-unioncitytransit",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=UC"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q9jy-unioncitytransit"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9qc60-vacavillecitycoach",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=VC"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9qc60-vacavillecitycoach"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9qc-vinenapacounty",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=VN"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9qc-vinenapacounty"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-9q9p-sanfranciscobayferry",
+      "urls": {
+        "static_current": "http://api.511.org/transit/datafeeds?api_key=e74ef98b-6e66-4d18-92be-e06755664137&operator_id=SB"
+      },
+      "license": {
+        "spdx_identifier": null,
+        "url": "http://assets.511.org/pdf/nextgen/developers/511_Data_Agreement_Final.pdf",
+        "use_without_attribution": "no",
+        "create_derived_product": "yes",
+        "redistribute": "yes",
+        "commercial_use_allowed": null,
+        "share_alike_optional": null,
+        "attribution_text": "data provided by 511.org",
+        "attribution_instructions": null
+      },
+      "feed_namespace_id": "o-9q9p-sanfranciscobayferry"
+    }
+  ],
+  "license_spdx_identifier": "CC0-1.0"
+}
