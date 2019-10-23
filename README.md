@@ -1,6 +1,11 @@
 # Distributed Mobility Feed Registry (DMFR)
 
-This is an experimental set of guidelines for data publishers providing machine readable lists of their feeds _and_ for data aggregation platforms providing machine readable lists of their feed contents to each other. This project is rooted in publishing and sharing lists of GTFS feeds for fixed-route public-transit networks. It's also applicable to real-time transit, bike-share, e-scooter, and other mobility datasets that take the form of "feeds" published at stable URLs.
+This is an experimental set of guidelines for data publishers providing machine readable lists of their feeds _and_ for data aggregation platforms providing machine readable lists of their feed contents to each other. This project is rooted in publishing and sharing lists of GTFS feeds for fixed-route public-transit networks. It's also applicable to real-time transit, bike-share, e-scooter, and other mobility datasets that take the form of "feeds" published at stable URLs:
+
+- [GTFS](https://gtfs.org/reference/static/)
+- [GTFS-Realtime](https://gtfs.org/reference/realtime/v2/)
+- [GBFS](https://github.com/NABSA/gbfs/#readme)
+- [MDS](https://github.com/CityOfLosAngeles/mobility-data-specification/#readme)
 
 ## Goals
 
