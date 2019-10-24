@@ -1,5 +1,5 @@
 {
-  "$schema": "https://dmfr.transit.land/json-schema/dmfr.schema-v0.1.0.json",
+  "$schema": "https://dmfr.transit.land/json-schema/dmfr.schema-v0.1.1.json",
   "feeds": [
     {
       "spec": "gtfs",
@@ -13,10 +13,8 @@
         "use_without_attribution": "yes",
         "create_derived_product": "unknown",
         "redistribute": "yes",
-        "commercial_use_allowed": null,
-        "share_alike_optional": null,
-        "attribution_text": null,
-        "attribution_instructions": null
+        "commercial_use_allowed": "yes",
+        "share_alike_optional": "yes"
       },
       "feed_namespace_id": "o-9q8-samtrans"
     }
