@@ -139,7 +139,7 @@
         "info_url": "https://datamine.mta.info/user/register"
       },
       "associated_feeds": ["f-dr5-mtanyclirr"]
-    }
+    },
     {
       "spec": "gtfs",
       "id": "f-dr5-mtanyclirr",
