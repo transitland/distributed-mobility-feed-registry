@@ -42,7 +42,7 @@ Single static GTFS feed:
         "static_planned": ""
       },
       "languages": ["en-US"], // IETF language tags, see https://tools.ietf.org/html/bcp47
-      "license": {
+      "license": { // license covering the contents of the feed
         "spdx_identifier": "", // see https://spdx.org/licenses/
         "url": "",
         "use_without_attribution": "yes", // enum: ["yes", "no", "unknown"]
@@ -52,7 +52,7 @@ Single static GTFS feed:
       }
     }
   ],
-  "license_spdx_identifier": "CC0-1.0" // required to meet this spec
+  "license_spdx_identifier": "CC0-1.0" // license covering the DMFR file itself; see https://spdx.org/licenses/
 }
 ```
 
