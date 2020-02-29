@@ -1,0 +1,23 @@
+name: Publish
+on:
+  push:
+    branches:
+    - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+    - name: Set up web assets
+      run: |
+        mkdir -p dist
+        cp json-schema dist
+        echo "Do you want the <a href="https://github.com/transitland/distributed-mobility-feed-registry#readme">DMFR readme</a> or the <a href="/json-schema/dmfr.schema.json">latest DMFR JSON schema</a>?" > dist/index.html
+    - run: pip install -U awscli
+    - run: aws s3 sync --acl public-read dist s3://dmfr.transit.land/
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
