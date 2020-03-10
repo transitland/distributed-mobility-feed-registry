@@ -58,8 +58,7 @@ Single static GTFS feed:
     {
       "spec": "gtfs", // enum: ["gtfs", "gtfs-rt", "gbfs", "mds"]
       "id": "XXXX", // IDs are internally unique, but not necessarily globally unique
-      "url": "", // "Transitland style URL" to support nested zip archives
-      "urls": { // alternatively if you want to list multiple feed URLs
+      "urls": { // "Transitland style URL" to support nested zip archives
         "static_current": "",
         "static_historic": [""],
         "static_planned": [""]
