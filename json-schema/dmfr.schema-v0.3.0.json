@@ -62,17 +62,17 @@
             },
             "realtime_vehicle_positions": {
               "type": "string",
-              "description": "TODO",
+              "description": "URL for GTFS Realtime VehiclePosition messages.",
               "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.~#{}/=?_/-]+$"
             },
             "realtime_trip_updates": {
               "type": "string",
-              "description": "TODO",
+              "description": "URL for GTFS Realtime TripUpdate messages.",
               "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.~#{}/=?_/-]+$"
             },
             "realtime_alerts": {
               "type": "string",
-              "description": "TODO",
+              "description": "URL for GTFS Realtime Alert messages.",
               "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.~#{}/=?_/-]+$"
             },
             "gbfs_auto_discovery": {
