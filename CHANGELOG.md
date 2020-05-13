@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0
+
+When `spec=gbfs`, only one type of URL is now needed or allowed: `gbfs_auto_discovery`.
+
+We made this decision because all of the GBFS feeds listed in [`systems.csv`](https://github.com/NABSA/gbfs/blob/v2.0/systems.csv) supply an auto-discovery URL. Also [GBFS v2.0](https://github.com/NABSA/gbfs/releases/tag/v2.0) requires the auto-discovery JSON file. 
+
 ## v0.2.0
 
 **Breaking change**: We've removed support to specify a static GTFS feed URL using `feed.url`. Now the one option is to specify this using `feed.urls.static_current`. This change will slightly simplifying tooling that validates or consumes DMFR. 
