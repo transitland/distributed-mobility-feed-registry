@@ -1,5 +1,65 @@
 # Changelog
 
+## v0.4.0
+
+**Breaking change**: We've removed `feed_namespace_id`, `associated_feeds`, and `other_ids`. If you want to group together feeds in a single DMFR, use `operator` records. If you want to reference feeds in another DMFR or outside source by providing external IDs, use `tags`.
+
+### Operators
+
+Operators are used to group together one or more feed record and to provide additional contextual information. Operators can be defined as top-level entities or nested under feeds. In both cases, operators can only be used to group feeds defined in a single DMFR file; an operator cannot be defined in one DMFR file and referenced in another DMFR file.
+
+Defining an operator as a top-level entity is useful in a case like New York MTA that has many feeds grouped under a single operator. Here is an example (with extraneous details removed):
+
+```json
+{
+  "feeds": [
+    {
+      "spec": "gtfs",
+      "id": "f-dr5r-nyctsubway"
+    },
+    {
+      "spec": "gtfs",
+      "id": "f-dr5r-mtanyctbusbrooklyn"
+    },
+    {
+      "spec": "gtfs-rt",
+      "id": "f-dr5-mtanyclirr~rt"
+    }
+  ],
+  "operators": [
+    {
+      "onestop_id": "o-dr5r-nyct",
+      "tags": {
+        "us_ntd_id": "20008",
+        "us_ntd_id2": "20188",
+        "wikidata_id": "Q1146109",
+        "twitter_general": "mta",
+        "twitter_service_alerts": "NYCTSubway"
+      },
+      "name": "MTA New York City Transit",
+      "short_name": "MTA",
+      "associated_feeds": [
+        {
+          "feed_onestop_id": "f-dr5r-nyctsubway"
+        },
+        {
+          "feed_onestop_id": "f-dr5r-mtanyctbusbrooklyn"
+        },
+        {
+          "feed_onestop_id": "f-dr5r-mtanyclirr~rt"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Other additions
+
+Feeds and operators can now have `tags`, an object that can have any number of keys, with all values as strings. We've long supported a flexible tagging structure in Transitland; now the source-of-truth for this information is also in the DMFR files in Transitland Atlas. Other DMFR tooling may also use `tags` for free-form and experimental functionality.
+
+Feeds and operators may have an array of strings called `supersedes_ids` that lists any IDs for outdated records that have been replaced by or merged into the current record. Transitland Atlas uses stores list of old Onestop IDs to capture the lineage of records over time and provide look-up by Onestop IDs that are no longer active.
+
 ## v0.3.0
 
 When `spec=gbfs`, only one type of URL is now needed or allowed: `gbfs_auto_discovery`.
