@@ -13,9 +13,11 @@
 - [Optional Stanzas](#optional-stanzas)
   - [License](#license)
   - [Authentication](#authentication)
+  - [Tags](#tags)
 
 ## Latest Updates
 
+* **21 October 2021** DMFR v0.4.0 now handles both feed and operator records. An operator can be used to group together one or more feeds and provide metadata, like the [operator listings on the public Transitland](https://www.transit.land/operators).
 * **18 November 2019** Transitland v2 is now using DMFR to power the new [Transitland Atlas](https://github.com/transitland/transitland-atlas) repository.
 
 
@@ -86,9 +88,6 @@ Single GTFS-realtime feed:
     {
       "type": "gtfs-rt", // enum: ["gtfs", "gtfs-rt", "gbfs", "mds"]
       "id": "XXXX", // unique ID for this feed record; may be a Onestop ID or your own ID scheme
-      "associated_feeds": [
-        // list of associated static GTFS feeds ids
-      ], 
       "urls": {
         "realtime_vehicle_positions": "",
         "realtime_trip_updates": "",
@@ -114,6 +113,62 @@ Single GTFS-realtime feed:
 }
 ```
 
+Group together multiple feeds using an operator:
+
+```jsonc
+{
+  "$schema": "https://dmfr.transit.land/json-schema/dmfr.schema-v0.3.0.json",
+  "feeds": [
+    {
+      "spec": "gtfs",
+      "id": "f-9q9-bart",
+      "urls": {
+        "static_current": "http://www.bart.gov/dev/schedules/google_transit.zip"
+      },
+      "license": {
+        "url": "http://www.bart.gov/schedules/developers/developer-license-agreement",
+        "use_without_attribution": "yes",
+        "create_derived_product": "unknown",
+        "redistribute": "yes"
+      },
+      "tags": {
+        "gtfs_data_exchange": "airbart"
+      }
+    },
+    {
+      "spec": "gtfs-rt",
+      "id": "f-bart~rt",
+      "urls": {
+        "realtime_alerts": "http://api.bart.gov/gtfsrt/alerts.aspx",
+        "realtime_trip_updates": "http://api.bart.gov/gtfsrt/tripupdate.aspx"
+      }
+    }
+  ],
+  "license_spdx_identifier": "CDLA-Permissive-1.0",
+  "operators": [
+    {
+      "onestop_id": "o-9q9-bart",
+      "tags": {
+        "us_ntd_id": "90003",
+        "omd_provider_id": "bart",
+        "wikidata_id": "Q610120",
+        "twitter_general": "sfbart",
+        "twitter_service_alerts": "SFBARTalert"
+      },
+      "name": "Bay Area Rapid Transit",
+      "short_name": "BART",
+      "associated_feeds": [
+        {
+          "feed_onestop_id": "f-bart~rt"
+        },
+        {
+          "feed_onestop_id": "f-9q9-bart"
+        }
+      ]
+    }
+  ]
+}
+```
 ## Fields
 
 ### IDs
@@ -157,4 +212,23 @@ Requiring authentication for public data feeds is typically not a good idea. How
       "param_name": "",
       "info_url": ""
     }
+```
+
+### Tags
+
+Tags allow extra information to be added to feeds and operators. Keys and values must both be strings.
+
+```jsonc
+  "operators": [
+    {
+      "onestop_id": "o-9q9-bart",
+      "tags": {
+        "us_ntd_id": "90003",
+        "omd_provider_id": "bart",
+        "wikidata_id": "Q610120",
+        "twitter_general": "sfbart",
+        "twitter_service_alerts": "SFBARTalert"
+      }
+    }
+  ]
 ```
