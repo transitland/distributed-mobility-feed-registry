@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.1
+
+DMFR v0.4.1 adds a new "replace_url" option for authorization secrets. This allows a private url to be used to fetch the data.
+
 ## v0.4.0
 
 **Breaking change**: We've removed `feed_namespace_id`, `associated_feeds`, and `other_ids`. If you want to group together feeds in a single DMFR, use `operator` records. If you want to reference feeds in another DMFR or outside source by providing external IDs, use `tags`.
