@@ -17,7 +17,7 @@
 
 ## Latest Updates
 
-* **21 Decembet 2022** DMFR v0.4.1 adds a new "replace_url" option for authorization secrets. This allows a private url to be used to fetch the data.
+* **21 December 2022** DMFR v0.4.1 adds a new "replace_url" option for authorization secrets. This allows a private url to be used to fetch the data.
 * **21 October 2021** DMFR v0.4.0 now handles both feed and operator records. An operator can be used to group together one or more feeds and provide metadata, like the [operator listings on the public Transitland](https://www.transit.land/operators).
 * **18 November 2019** Transitland v2 is now using DMFR to power the new [Transitland Atlas](https://github.com/transitland/transitland-atlas) repository.
 
