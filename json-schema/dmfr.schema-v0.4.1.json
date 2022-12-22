@@ -182,7 +182,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["header", "basic_auth", "query_param", "path_segment", "replace"],
+            "enum": ["header", "basic_auth", "query_param", "path_segment", "replace_url"],
             "description": "Authorization approach: HTTP header, basic authentication, query parameter, or path segment in a Transitland Extended URL."
           },
           "param_name": {
