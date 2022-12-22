@@ -1,0 +1,254 @@
+{
+    "$id": "https://dmfr.transit.land/json-schema/dmfr.schema-v0.4.0.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Distributed Mobility Feed Registry",
+    "type": "object",
+    "properties": {
+      "feeds": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/feed"
+        }
+      },
+      "operators": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/operator"
+        }
+      },
+      "license_spdx_identifier": {
+        "type": "string"
+      }
+    },
+    "definitions": {
+      "feed": {
+        "type": "object",
+        "required": ["id", "spec", "urls"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier for this feed, internal to this DMFR instance. (Optionally can be a Onestop ID.)"
+          },
+          "supersedes_ids": {
+            "type": "array",
+            "description": "One or more Onestop IDs for old feeds records that have since been merged into or taken over by this feed record.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "spec": {
+            "type": "string",
+            "enum": ["gtfs", "gtfs-rt", "gbfs", "mds"],
+            "description": "Type of data contained in this feed: GTFS, GTFS-RT, GBFS, or MDS."
+          },
+          "urls": {
+            "type": "object",
+            "properties": {
+              "static_current": {
+                "type": "string",
+                "description": "URL (in Transitland Extended URL format) for the static feed that represents today's service. (Has the same meaning as url.)",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+              },
+              "static_historic": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "URLs (in Transitland Extended URL format) for static feeds that represent past service that is no longer in effect.",
+                  "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+                }
+              },
+              "static_planned": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "URLs (in Transitland Extended URL format) for static feeds that represent service planned for upcoming dates. Typically used to represent calendar/service changes that will take effect few weeks or months in the future.",
+                  "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+                }
+              },
+              "static_hypothetical": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "URLs (in Transitland Extended URL format) for static feeds that represent potential service or network changes. Typically used to represent scenarios that may (or may not) take effect months or years in the future.",
+                  "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+                }
+              },
+              "realtime_vehicle_positions": {
+                "type": "string",
+                "description": "URL for GTFS Realtime VehiclePosition messages.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+              },
+              "realtime_trip_updates": {
+                "type": "string",
+                "description": "URL for GTFS Realtime TripUpdate messages.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+              },
+              "realtime_alerts": {
+                "type": "string",
+                "description": "URL for GTFS Realtime Alert messages.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+              },
+              "gbfs_auto_discovery": {
+                "type": "string",
+                "description": "Auto-discovery file in JSON format that links to all of the other GBFS files published by the system.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+              },
+              "mds_provider": {
+                "type": "string",
+                "description": "MDS provider API endpoints are intended to be implemented by mobility providers and consumed by regulatory agencies.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+              }
+            }
+          },
+          "languages": {
+            "type": "array",
+            "description": "Language(s) included in this feed.",
+            "items": {
+              "$ref": "#/definitions/language"
+            }
+          },
+          "license": {
+            "$ref": "#/definitions/license_description"
+          },
+          "authorization": {
+            "$ref": "#/definitions/authorization"
+          },
+          "operators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/operator"
+            }
+          },
+          "tags": {
+            "type": "object",
+            "description": "Extended information about the feed, as well as fetch and import controls for the Transitland platform."
+          }
+        }
+      },
+      "language": {
+        "type": "string",
+        "description": "A language specified using an IETF language tag."
+      },
+      "license_description": {
+        "type": "object",
+        "properties": {
+          "spdx_identifier": {
+            "type": "string",
+            "description": "SPDX identifier for a common license. See https://spdx.org/licenses/"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for a custom license."
+          },
+          "use_without_attribution": {
+            "type": "string",
+            "enum": ["yes", "no", "unknown"],
+            "description": "Are feed consumers allowed to use the feed contents without including attribution text in their app or map?"
+          },
+          "create_derived_product": {
+            "type": "string",
+            "enum": ["yes", "no", "unknown"],
+            "description": "Are feed consumers allowed to create and share derived products from the feed?"
+          },
+          "redistribution_allowed": {
+            "type": "string",
+            "enum": ["yes", "no", "unknown"],
+            "description": "Are feed consumers allowed to redistribute the feed in its entirety?"
+          },
+          "commercial_use_allowed": {
+            "type": "string",
+            "enum": ["yes", "no", "unknown"],
+            "description": "Are feed consumers allowed to use the feed for commercial purposes?"
+          },
+          "share_alike_optional": {
+            "type": "string",
+            "enum": ["yes", "no", "unknown"],
+            "description": "Are feed consumers allowed to keep their modifications of this feed private?"
+          },
+          "attribution_text": {
+            "type": "string",
+            "description": "Feed consumers must include this particular text when using this feed."
+          },
+          "attribution_instructions": {
+            "type": "string",
+            "description": "Feed consumers must follow these instructions for how to provide attribution."
+          }
+        }
+      },
+      "authorization": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["header", "basic_auth", "query_param", "path_segment", "replace_url"],
+            "description": "Authorization approach: HTTP header, basic authentication, query parameter, or path segment in a Transitland Extended URL."
+          },
+          "param_name": {
+            "type": "string",
+            "description": "When type=query_param, this specifies the name of the query parameter."
+          },
+          "info_url": {
+            "type": "string",
+            "description": "Website to visit to sign up for an account."
+          }
+        }
+      },
+      "operator": {
+        "type":"object",
+        "required": ["onestop_id", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "onestop_id": {
+            "type": "string",
+            "description": "The globally unique Onestop ID for this operator."
+  
+          },
+          "supersedes_ids": {
+            "type": "array",
+            "description": "One or more Onestop IDs for old operator records that have since been merged into or taken over by this operator record.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Full name of the operator. If there is an abbreviation or acronym for the operator, also define a short_name."
+  
+          },
+          "short_name": {
+            "type": "string",
+            "description": "Abbreviation, acronym, or secondary name of the operator."
+  
+          },
+          "website": {
+            "type": "string",
+            "description": "URL for the operator's public website.",
+            "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+  
+          },
+          "associated_feeds": {
+            "type": "array",
+            "description": "Define associations between an operator and one or more feeds. If this operator is defined underneath a feed, it is not necessary to include a feed_onestop_id. In all cases, it is only necessary to specify a gtfs_agency_id when a feed includes more than one agency; Transitland will auto-detect the agency_id if the feed includes only one feed.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "gtfs_agency_id": {
+                  "type": "string",
+                  "description": "ID from the "
+                },
+                "feed_onestop_id": {
+  
+                }
+              }
+            }
+          },
+          "tags": {
+            "type": "object",
+            "description": "Extended information about the operator, including identifiers for this operator in other datasets."
+          }
+        }
+      }
+    }
+  }
