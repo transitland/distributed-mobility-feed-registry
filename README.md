@@ -21,6 +21,7 @@ This is a set of guidelines for data publishers providing machine readable lists
 - [GTFS](https://gtfs.org/reference/static/)
 - [GTFS-Realtime](https://gtfs.org/reference/realtime/v2/)
 - [GBFS](https://github.com/NABSA/gbfs/#readme)
+- [MDS](https://github.com/CityOfLosAngeles/mobility-data-specification/#readme)
 
 ## Goals
 
