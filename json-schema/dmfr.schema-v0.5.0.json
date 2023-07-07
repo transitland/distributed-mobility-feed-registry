@@ -44,8 +44,8 @@
           },
           "spec": {
             "type": "string",
-            "enum": ["gtfs", "gtfs-rt", "gbfs"],
-            "description": "Type of data contained in this feed: GTFS, GTFS-RT, or GBFS."
+            "enum": ["gtfs", "gtfs-rt", "gbfs", "mds"],
+            "description": "Type of data contained in this feed: GTFS, GTFS-RT, GBFS, or MDS."
           },
           "name": {
             "type": "string",
@@ -105,6 +105,11 @@
               "gbfs_auto_discovery": {
                 "type": "string",
                 "description": "Auto-discovery file in JSON format that links to all of the other GBFS files published by the system.",
+                "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+              },
+              "mds_provider": {
+                "type": "string",
+                "description": "MDS provider API endpoints are intended to be implemented by mobility providers and consumed by regulatory agencies.",
                 "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
               }
             }

@@ -2,7 +2,6 @@
 
 ## v0.5.0
 
-- **Breaking change**: DMFR no longer supports feeds in the [MDS specification](https://github.com/openmobilityfoundation/mobility-data-specification). Transitland has expanded to support GTFS, GTFS Realtime, and GBFS, but has no immediate plans to support MDS.
 - A feed record can now have an optional `name` and `description` fields to provide additional context to DMFR editors and users of software that consume DMFR files.
 - When specifying an SPDX identifier for a feed license or DMFR license, the value will now be validated against a list of SPDX short-form identifiers. Sourced from https://github.com/spdx/license-list-data
 
