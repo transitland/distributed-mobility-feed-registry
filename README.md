@@ -2,7 +2,6 @@
 
 <!-- to update use https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one -->
 
-- [Latest Updates](#latest-updates)
 - [Introduction](#introduction)
 - [Goals](#goals)
 - [Related Work](#related-work)
@@ -15,16 +14,9 @@
   - [Authentication](#authentication)
   - [Tags](#tags)
 
-## Latest Updates
-
-* **21 December 2022** DMFR v0.4.1 adds a new "replace_url" option for authorization secrets. This allows a private url to be used to fetch the data.
-* **21 October 2021** DMFR v0.4.0 now handles both feed and operator records. An operator can be used to group together one or more feeds and provide metadata, like the [operator listings on the public Transitland](https://www.transit.land/operators).
-* **18 November 2019** Transitland v2 is now using DMFR to power the new [Transitland Atlas](https://github.com/transitland/transitland-atlas) repository.
-
-
 ## Introduction
 
-This is an experimental set of guidelines for data publishers providing machine readable lists of their feeds _and_ for data aggregation platforms providing machine readable lists of their feed contents to each other. This project is rooted in publishing and sharing lists of GTFS feeds for fixed-route public-transit networks. It's also applicable to real-time transit, bike-share, e-scooter, and other mobility datasets that take the form of "feeds" published at stable URLs:
+This is a set of guidelines for data publishers providing machine readable lists of their feeds _and_ for data aggregation platforms providing machine readable lists of their feed contents to each other. This project is rooted in publishing and sharing lists of GTFS feeds for fixed-route public-transit networks. It's also applicable to real-time transit, bike-share, e-scooter, and other mobility datasets that take the form of "feeds" published at stable URLs:
 
 - [GTFS](https://gtfs.org/reference/static/)
 - [GTFS-Realtime](https://gtfs.org/reference/realtime/v2/)

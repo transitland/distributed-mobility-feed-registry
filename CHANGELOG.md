@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.0
+
+- A feed record can now have an optional `name` and `description` fields to provide additional context to DMFR editors and users of software that consume DMFR files.
+- When specifying an SPDX identifier for a feed license or DMFR license, the value will now be validated against a list of SPDX short-form identifiers. Sourced from https://github.com/spdx/license-list-data
+
 ## v0.4.1
 
 DMFR v0.4.1 adds a new "replace_url" option for authorization secrets. This allows a private url to be used to fetch the data.
