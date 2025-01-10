@@ -28,11 +28,7 @@
   "definitions": {
     "feed": {
       "type": "object",
-      "required": [
-        "id",
-        "spec",
-        "urls"
-      ],
+      "required": ["id", "spec", "urls"],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -48,12 +44,7 @@
         },
         "spec": {
           "type": "string",
-          "enum": [
-            "gtfs",
-            "gtfs-rt",
-            "gbfs",
-            "mds"
-          ],
+          "enum": ["gtfs", "gtfs-rt", "gbfs", "mds"],
           "description": "Type of data contained in this feed: GTFS, GTFS-RT, GBFS, or MDS."
         },
         "name": {
@@ -170,47 +161,27 @@
         },
         "use_without_attribution": {
           "type": "string",
-          "enum": [
-            "yes",
-            "no",
-            "unknown"
-          ],
+          "enum": ["yes", "no", "unknown"],
           "description": "Are feed consumers allowed to use the feed contents without including attribution text in their app or map?"
         },
         "create_derived_product": {
           "type": "string",
-          "enum": [
-            "yes",
-            "no",
-            "unknown"
-          ],
+          "enum": ["yes", "no", "unknown"],
           "description": "Are feed consumers allowed to create and share derived products from the feed?"
         },
         "redistribution_allowed": {
           "type": "string",
-          "enum": [
-            "yes",
-            "no",
-            "unknown"
-          ],
+          "enum": ["yes", "no", "unknown"],
           "description": "Are feed consumers allowed to redistribute the feed in its entirety?"
         },
         "commercial_use_allowed": {
           "type": "string",
-          "enum": [
-            "yes",
-            "no",
-            "unknown"
-          ],
+          "enum": ["yes", "no", "unknown"],
           "description": "Are feed consumers allowed to use the feed for commercial purposes?"
         },
         "share_alike_optional": {
           "type": "string",
-          "enum": [
-            "yes",
-            "no",
-            "unknown"
-          ],
+          "enum": ["yes", "no", "unknown"],
           "description": "Are feed consumers allowed to keep their modifications of this feed private?"
         },
         "attribution_text": {
@@ -787,19 +758,11 @@
     },
     "authorization": {
       "type": "object",
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "header",
-            "basic_auth",
-            "query_param",
-            "path_segment",
-            "replace_url"
-          ],
+          "enum": ["header", "basic_auth", "query_param", "path_segment", "replace_url"],
           "description": "Authorization approach: HTTP header, basic authentication, query parameter, or path segment in a Transitland Extended URL."
         },
         "param_name": {
@@ -813,16 +776,14 @@
       }
     },
     "operator": {
-      "type": "object",
-      "required": [
-        "onestop_id",
-        "name"
-      ],
+      "type":"object",
+      "required": ["onestop_id", "name"],
       "additionalProperties": false,
       "properties": {
         "onestop_id": {
           "type": "string",
           "description": "The globally unique Onestop ID for this operator."
+
         },
         "supersedes_ids": {
           "type": "array",
@@ -834,15 +795,18 @@
         "name": {
           "type": "string",
           "description": "Full name of the operator. If there is an abbreviation or acronym for the operator, also define a short_name."
+
         },
         "short_name": {
           "type": "string",
           "description": "Abbreviation, acronym, or secondary name of the operator."
+
         },
         "website": {
           "type": "string",
           "description": "URL for the operator's public website.",
           "pattern": "^(http|https|ftp):\/\/[a-zA-Z0-9.,~#{}():&/%='?_/-]+$"
+
         },
         "associated_feeds": {
           "type": "array",
@@ -854,7 +818,9 @@
                 "type": "string",
                 "description": "ID from the "
               },
-              "feed_onestop_id": {}
+              "feed_onestop_id": {
+
+              }
             }
           }
         },
