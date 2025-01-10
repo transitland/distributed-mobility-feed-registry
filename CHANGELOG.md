@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.1
+
+- Feed URLs are now validated more permissively, to allow a wider range of alphabetic characters from non-English languages.
+
 ## v0.5.0
 
 - A feed record can now have an optional `name` and `description` fields to provide additional context to DMFR editors and users of software that consume DMFR files.
