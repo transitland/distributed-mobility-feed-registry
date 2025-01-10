@@ -62,8 +62,7 @@
                 "type": "string",
                 "description": "URL (in Transitland Extended URL format) for the static feed that represents today's service. (Has the same meaning as url.)",
                 "format": "uri",
-                "pattern": "^(http|https|ftp)://",
-                "patternFlags": "i"
+                "pattern": "^(http|https|ftp)://"
               },
               "static_historic": {
                 "type": "array",
