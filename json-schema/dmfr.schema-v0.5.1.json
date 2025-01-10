@@ -75,7 +75,7 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "description": "URLs (in Transitland Extended URL format) for static feeds that represent service planned for upcoming dates.",
+                "description": "URLs (in Transitland Extended URL format) for static feeds that represent service planned for upcoming dates. Typically used to represent calendar/service changes that will take effect few weeks or months in the future.",
                 "pattern": "^(http|https|ftp):\\/\\/[\\p{L}\\p{N}.,~#{}():&\\/%='?_/-]+$"
               }
             },
@@ -83,7 +83,7 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "description": "URLs (in Transitland Extended URL format) for static feeds that represent potential service or network changes.",
+                "description": "URLs (in Transitland Extended URL format) for static feeds that represent potential service or network changes. Typically used to represent scenarios that may (or may not) take effect months or years in the future.",
                 "pattern": "^(http|https|ftp):\\/\\/[\\p{L}\\p{N}.,~#{}():&\\/%='?_/-]+$"
               }
             },
