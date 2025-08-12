@@ -218,7 +218,7 @@ https://github.com/septadev/GTFS/releases/download/v201810010/gtfs_public.zip#go
 
 ### License
 
-Based on [Transitland's approach to handling open data licenses](https://transitland/an-open-project/) in all their variety.
+Based on [Transitland's approach to handling open data licenses](https://transit.land/an-open-project/) in all their variety.
 
 ```jsonc
       "license": {
