@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.0
+
+- Remove top-level `license_spdx_identifier`. This has confused editors, who think it may refer to an individual feed's license, while the point was to refer to the license attached to the DMFR file itself. Instead, we'll let each repo with DMFR files set its own separate license file.
+
 ## v0.5.1
 
 - Feed URLs are now validated more permissively, to allow a wider range of alphabetic characters from non-English languages.
