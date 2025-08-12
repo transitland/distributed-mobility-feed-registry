@@ -3,6 +3,7 @@
 ## v0.6.0
 
 - Remove top-level `license_spdx_identifier`. This has confused editors, who think it may refer to an individual feed's license, while the point was to refer to the license attached to the DMFR file itself. Instead, we'll let each repo with DMFR files set its own separate license file.
+- Minor fixes to property descriptions
 
 ## v0.5.1
 
