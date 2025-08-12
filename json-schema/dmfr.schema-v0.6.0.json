@@ -808,10 +808,11 @@
               "properties": {
                 "gtfs_agency_id": {
                   "type": "string",
-                  "description": "ID from the "
+                  "description": "ID from the agency.txt file in the GTFS feed that corresponds to this operator. Only required when the feed includes more than one agency."
                 },
                 "feed_onestop_id": {
-  
+                  "type": "string",
+                  "description": "The Onestop ID of the feed that this operator is associated with. Not required when the operator definition is nested underneath a feed."
                 }
               }
             }
