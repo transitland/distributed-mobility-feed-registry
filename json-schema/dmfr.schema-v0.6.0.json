@@ -787,12 +787,10 @@
           "name": {
             "type": "string",
             "description": "Full name of the operator. If there is an abbreviation or acronym for the operator, also define a short_name."
-  
           },
           "short_name": {
             "type": "string",
             "description": "Abbreviation, acronym, or secondary name of the operator."
-  
           },
           "website": {
             "type": "string",
